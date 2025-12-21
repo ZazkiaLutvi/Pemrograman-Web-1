@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<script>
+    function proses(){
+        harga1 = document.form.harga1.value;
+        harga2 = document.form.harga2.value;
+        
+        total = (+harga1) + (harga2*1);
+        document.form.total.value = total;
+
+        //mencari total diskon
+        diskon = 0;
+        if(total >= 30000){
+            diskon = 0.10 * total
+        }
+        document.form.diskon.value = diskon;
+
+        //bayar
+        bayar = total - diskon;
+        document.form.bayar.value = bayar;
+    }
+</script>
+
+<body>
+    <center>
+        <form name="form">
+        <h1>Program Penjualan</h1>
+        <hr>
+        <table>
+            <tr>
+                <td>Nama Barang</td>
+                <td>:</td>
+                <td><input type="text" name="NamaBarang1" size="20"></td>
+                <td>Nama Barang</td>
+                <td>:</td>
+                <td><input type="text" name="NamaBarang2" size="20"></td>
+            </tr>
+            <tr>
+                <td>Harga</td>
+                <td>:</td>
+                <td><input type="text" name="harga1" size="10"></td>
+                <td>Harga</td>
+                <td>:</td>
+                <td><input type="text" name="harga2" size="10"></td>
+            </tr>
+            <tr><td colspan="6"><hr></td></tr>
+            <tr>
+                <td>Total</td>
+                <td>:</td>
+                <td><input type="text" name="total" size="10"></td>
+            </tr>
+            <tr>
+                <td>Diskon</td>
+                <td>:</td>
+                <td><input type="text" name="diskon" size="10"></td>
+            </tr>
+            <tr><td colspan="6"><hr></td></tr>
+            <tr>
+                <td>Bayar</td>
+                <td>:</td>
+                <td><input type="text" name="bayar" size="10"></td>
+            </tr>
+            <tr><td colspan="6"><br></td></tr>
+            <tr><td colspan="6"><hr></td></tr>
+        </table>
+        <br>
+        <input type="button" value="Proses" onclick="proses()">
+        <input type="reset" value="Reset">
+    </center>
+    </form>
+</body>
+</html>

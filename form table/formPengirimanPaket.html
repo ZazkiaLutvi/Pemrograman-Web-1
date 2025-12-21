@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form pengiriman paket</title>
+</head>
+
+<script>
+    function proses() {
+        tujuan = document.form.tujuan.value;
+        kurir = document.form.kurir.value;
+        jenis = document.form.jenis.value;
+        harga = 0;
+        //KOTA BANDUNG
+        if(tujuan=="BANDUNG"){
+            if(kurir=="JNE"){
+                if(jenis=="EKONOMI") harga=5000;
+                if(jenis=="REGULER") harga=6000;
+                if(jenis=="KILAT") harga=7000;
+            }
+        }
+        if(tujuan=="BANDUNG"){
+            if(kurir=="TIKI"){
+                if(jenis=="EKONOMI") harga=6000;
+                if(jenis=="REGULER") harga=7000;
+                if(jenis=="KILAT") harga=8000;
+            }
+        }
+        if(tujuan=="BANDUNG"){
+            if(kurir=="ANTERAJA"){
+                if(jenis=="EKONOMI") harga=7000;
+                if(jenis=="REGULER") harga=8000;
+                if(jenis=="KILAT") harga=9000;
+            }
+        }
+        //KOTA JAKARTA
+        if(tujuan=="JAKARTA"){
+            if(kurir=="JNE"){
+                if(jenis=="EKONOMI") harga=6000;
+                if(jenis=="REGULER") harga=7000;
+                if(jenis=="KILAT") harga=8000;
+            }
+        }
+        if(tujuan=="JAKARTA"){
+            if(kurir=="TIKI"){
+                if(jenis=="EKONOMI") harga=7000;
+                if(jenis=="REGULER") harga=8000;
+                if(jenis=="KILAT") harga=9000;
+            }
+        }
+        if(tujuan=="JAKARTA"){
+            if(kurir=="ANTERAJA"){
+                if(jenis=="EKONOMI") harga=8000;
+                if(jenis=="REGULER") harga=9000;
+                if(jenis=="KILAT") harga=10000;
+            }
+        }
+        //KOTA SURABAYA
+        if(tujuan=="SURABAYA"){
+            if(kurir=="JNE"){
+                if(jenis=="EKONOMI") harga=7000;
+                if(jenis=="REGULER") harga=8000;
+                if(jenis=="KILAT") harga=9000;
+            }
+        }
+        if(tujuan=="SURABAYA"){
+            if(kurir=="TIKI"){
+                if(jenis=="EKONOMI") harga=8000;
+                if(jenis=="REGULER") harga=9000;
+                if(jenis=="KILAT") harga=10000;
+            }
+        }
+        if(tujuan=="SURABAYA"){
+            if(kurir=="TIKI"){
+                if(jenis=="EKONOMI") harga=9000;
+                if(jenis=="REGULER") harga=10000;
+                if(jenis=="KILAT") harga=11000;
+            }
+        }
+        document.form.harga.value=harga;
+        //mengihtung total harga
+        berat = document.form.berat_paket.value;
+        total_harga = berat * harga;
+        document.form.total_harga.value = total_harga;
+        //menghitung diskon 10%
+        diskon = 0.10 * total_harga;
+        document.form.diskon.value = diskon;
+        //menghitung total bayar
+        bayar = total_harga - diskon;
+        document.form.total_bayar.value = bayar;
+    }
+</script>
+
+<body>
+    <center>
+        <h1>PENGIRIMAN PAKET</h1>
+        <hr>
+        <form name="form">
+            <table>
+            <tr>
+                <td>NAMA PEMESAN<td>: <input type="text" name="nama_pemesan" size="20">
+            </tr>
+            <tr>
+                <td>KOTA TUJUAN<td>: <select name="tujuan">
+                <option>BANDUNG</option>
+                <option>JAKARTA</option>
+                <option>SURABAYA</option>
+            </select>
+            <td>KURIR<td>: <select name="kurir">
+                <option>JNE</option>
+                <option>TIKI</option>
+                <option>ANTERAJA</option>
+            </select>
+            </tr>
+            <tr>
+                <td>JENIS PENGIRIMAN<td>: <input type="radio" name="jenis" value="EKONOMI">EKONOMI
+                <tr><td><td>: <input type="radio" name="jenis" value="REGULER">REGULER
+                <tr><td><td>: <input type="radio" name="jenis" value="KILAT">KILAT
+            </tr>
+            <tr>
+                <td>BERAT PAKET<td>: <input type="text" name="berat_paket" size="20"> Kg
+            </tr>
+            
+            <tr><td colspan="4"><hr>
+            <tr><td>HARGA PER-KG<td>: <input type="text" name="harga" size="10"></tr>
+            <tr><td>TOTAL HARGA<td>: <input type="text" name="total_harga" size="10">
+                <td>DISKON10%<td>: <input type="text" name="diskon" size="10">
+            </tr>
+            
+            <tr><td colspan="4"><hr>
+            <tr><td>TOTAL BAYAR<td>: <input type="text" name="total_bayar" size="10"></tr>
+
+        </table>
+        <hr>
+        <input type="button" value="Proses" onclick="proses()">
+        <input type="reset" value="Clear">
+        </form>
+    </center>
+</body>
+</html>

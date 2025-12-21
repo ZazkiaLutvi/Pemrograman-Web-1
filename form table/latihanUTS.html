@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Program Gaji Pegawai</title>
+</head>
+<body>
+
+<h1 align="center">PROGRAM GAJI PEGAWAI PT. FARADISYA</h1>
+
+<form name="formPegawai">
+	<center>
+  <table border="0" cellpadding="5">
+
+    <tr>
+      <td width="170">NAMA PEGAWAI</td>
+      <td width="10">:</td>
+      <td><input type="text" name="namaPegawai" size="40"></td>
+    </tr>
+
+    <tr>
+      <td>BAGIAN</td>
+      <td>:</td>
+      <td>
+        <input type="radio" name="bagian" value="KEUANGAN"> KEUANGAN
+        <input type="radio" name="bagian" value="PRODUKSI"> PRODUKSI
+        <input type="radio" name="bagian" value="PEMASARAN"> PEMASARAN
+      </td>
+    </tr>
+
+    <tr>
+      <td>GOLONGAN</td>
+      <td>:</td>
+      <td>
+        <select name="golongan" size="1">
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+        </select>
+      TAHUN MASUK : <input type="text" name="tahunMasuk" size="4"></td>
+    </tr>
+
+    <tr><td>TUNJANGAN</td>
+    <tr><td><input type="checkbox" name="makan" value="MAKAN 10%"> MAKAN 10%<td>:<td><input type="text" name="makan" size="20" readonly>
+    <tr><td><input type="checkbox" name="kesehatan" value="KESEHATAN 15%"> KESEHATAN 15%<td>:<td><input type="text" name="makan" size="20" readonly>
+    <tr><td><input type="checkbox" name="keluarga" value="KELUARGA 20%"> KELUARGA 20%<td>:<td><input type="text" name="makan" size="20" readonly>
+	
+	<tr><td colspan=4><hr>
+	
+    <tr>
+      <td>GAJI POKOK</td>
+      <td>:</td>
+      <td><input type="text" name="gajiPokok" size="20" readonly> LAMA KERJA :
+	  <input type="text" name="lamaKerja" size="10" readonly></td>
+    </tr>
+    
+  </table>
+  <br>
+  <input type="button" value="Hitung Gaji">
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<form name=form>
+<script>
+function kali() {
+	var a=document.form.a.value;
+	var b=document.form.b.value;
+	var c=a*b;
+	document.form.c.value=c;
+}
+function bagi() {
+	var a=document.form.a.value;
+	var b=document.form.b.value;
+	var c=a/b;
+	document.form.c.value=c;
+}
+function kurang() {
+	var a=document.form.a.value;
+	var b=document.form.b.value;
+	var c=a-b;
+	document.form.c.value=c;
+}
+function tambah() {
+	var a=document.form.a.value;
+	var b=document.form.b.value;
+	var c=a*1 + b*1;
+	document.form.c.value=c;
+}
+</script>
+
+<html>
+<center>
+	<h1>KALKULATOR SEDERHANA</h1>
+	<table>
+	<tr><td>Angka Pertama<td>:<input type=text name="a" size=20>
+	<tr><td>Angka Kedua<td>:<input type=text name="b" size=20>
+	<tr><td colspan=2><hr>
+	<tr><td>Hasil<td>:<input type=text name="c" size=20>
+	</table>
+	<hr>
+	<input type=button value="*" onclick="kali()">
+	<input type=button value="/" onclick="bagi()">
+	<input type=button value="-" onclick="kurang()">
+	<input type=button value="+" onclick="tambah()">
+	<input type=reset value="Clear">
+</html>

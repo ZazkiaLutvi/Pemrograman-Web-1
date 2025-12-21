@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiket KAI</title>
+</head>
+
+<script>
+    function proses(){
+        tujuan = document.form.kota_tujuan.value;
+        kelas = document.form.kelas.value;
+        jumTiket = document.form.tiket.value;
+        harga = 0;
+
+        //bandung
+        if(tujuan == "BANDUNG"){
+            if(kelas == "EKONOMI") harga=7000;
+            if(kelas == "BISNIS") harga=8000;
+            if(kelas == "EKSEKUTIF") harga=9000;
+        }
+
+        //jakarta
+        if(tujuan == "JAKARTA"){
+            if(kelas == "EKONOMI") harga=10000;
+            if(kelas == "BISNIS") harga=15000;
+            if(kelas == "EKSEKUTIF") harga=20000;
+        }
+
+        //surabaya
+        if(tujuan == "SURABAYA"){
+            if(kelas == "EKONOMI") harga=15000;
+            if(kelas == "BISNIS") harga=20000;
+            if(kelas == "EKSEKUTIF") harga=30000;
+        }
+
+        document.form.hargaTiket.value = harga;
+        totalHargaTiket = harga * jumTiket;
+        document.form.totalHargaTiket.value = totalHargaTiket;
+
+        //menghitung tambahan
+        makan = document.form.makan.checked;
+        minum = document.form.minum.checked;
+        snack = document.form.snack.checked;
+
+        h_makan = 0;
+        h_minum = 0;
+        h_snack = 0;
+
+        if(makan) h_makan = 20000;
+        if(minum) h_minum = 10000;
+        if(snack) h_snack = 15000;
+
+        document.form.hargaMakan.value = h_makan;
+        document.form.hargaMinum.value = h_minum;
+        document.form.hargaSnack.value = h_snack;
+
+        jumMakan = document.form.jumMakan.value;
+        jumMinum = document.form.jumMinum.value;
+        jumSnack = document.form.jumSnack.value;
+        totalMakan = h_makan * jumMakan;
+        totalMinum = h_minum * jumMinum;
+        totalSnack = h_snack * jumSnack;
+        
+        document.form.totalMakan.value = totalMakan;
+        document.form.totalMinum.value = totalMinum;
+        document.form.totalSnack.value = totalSnack;
+
+        //menghitung total harga
+        totalHarga = totalHargaTiket + totalMakan + totalMinum + totalSnack;
+        document.form.totalHarga.value = totalHarga;
+        
+    }
+</script>
+
+<body">
+    <center>
+        <h1 style="background-color: brown; border-radius: 10%;">PROGRAM TIKET KERETA</h1>
+        <br>
+        <form name="form">
+            <table style="background-color: aquamarine;">
+                <tr><td>NAMA PEMESAN<td>: <input type="text" name="nama"></tr>
+                <tr>
+                    <td>KOTA TUJUAN</td>
+                    <td>KELAS</td>
+                    <td>JUMLAH</td>
+                    <td>HARGA</td>
+                    <td>TOTAL</td>
+                </tr>
+                <tr>
+                    <td>
+                        <select name="kota_tujuan">
+                            <option value="BANDUNG">BANDUNG</option>
+                            <option value="JAKARTA">JAKARTA</option>
+                            <option value="SURABAYA">SURABAYA</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="kelas">
+                            <option value="EKONOMI">EKONOMI</option>
+                            <option value="BISNIS">BISNIS</option>
+                            <option value="EKSEKUTIF">EKSEKUTIF</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="tiket">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </td>
+                    <td><input type="text" name="hargaTiket" size="10" readonly></td>
+                    <td><input type="text" name="totalHargaTiket" size="10" readonly></td>
+                </tr>
+                <tr><td>TAMBAHAN</td></tr>
+                <tr>
+                    <td><input type="checkbox" name="makan" value="MAKAN">MAKAN</td>
+                    <td></td>
+                    <td>
+                        <select name="jumMakan">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </td>
+                    <td><input type="text" name="hargaMakan" size="10" readonly></td>
+                    <td><input type="text" name="totalMakan" size="10" readonly></td>
+                </tr>
+                <tr><td><input type="checkbox" name="minum" value="MINUM">MINUM</td>
+                    <td></td>
+                    <td>
+                        <select name="jumMinum">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </td>
+                    <td><input type="text" name="hargaMinum" size="10" readonly></td>
+                    <td><input type="text" name="totalMinum" size="10" readonly></td>
+                </tr>
+                <tr><td><input type="checkbox" name="snack" value="SNACK">SNACK</td>
+                    <td></td>
+                    <td>
+                        <select name="jumSnack">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </td>
+                    <td><input type="text" name="hargaSnack" size="10" readonly></td>
+                    <td><input type="text" name="totalSnack" size="10" readonly></td>
+                </tr>
+                <tr><td colspan="5"><hr></td></tr>
+                <tr>
+                    <td>TOTAL HARGA</td>
+                    <td colspan="3"></td>
+                    <td><input type="text" name="totalHarga" size="10"></td>
+                </tr>
+            </table>
+            <br>
+            <input type="button" value="Proses" onclick="proses()" style="border-radius: 25%; background-color: brown; width: 100px;">
+            <input type="reset" value="Clear" style="border-radius: 25%; background-color: yellow; width: 100px;">
+
+        </form>
+    </center>
+</body>
+</html>

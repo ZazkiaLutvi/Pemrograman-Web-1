@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<script>
+    function proses() {
+        tujuan=document.form.tujuan.value;
+        kelas=document.form.kelas.value;
+        if((tujuan=="JAKARTA") && (kelas=="EKONOMI")) harga_tiket=50000;
+        if((tujuan=="JAKARTA") && (kelas=="BISNIS")) harga_tiket=75000;
+        if((tujuan=="JAKARTA") && (kelas=="EKSEKUTIF")) harga_tiket=100000;
+
+        if((tujuan=="CIREBON") && (kelas=="EKONOMI")) harga_tiket=100000;
+        if((tujuan=="CIREBON") && (kelas=="BISNIS")) harga_tiket=120000;
+        if((tujuan=="CIREBON") && (kelas=="EKSEKUTIF")) harga_tiket=150000;
+
+        if((tujuan=="SEMARANG") && (kelas=="EKONOMI")) harga_tiket=150000;
+        if((tujuan=="SEMARANG") && (kelas=="BISNIS")) harga_tiket=175000;
+        if((tujuan=="SEMARANG") && (kelas=="EKSEKUTIF")) harga_tiket=200000;
+        document.form.harga_tiket.value=harga_tiket;
+
+        wifi=document.form.wifi.checked;
+        makan=document.form.makan.checked;
+        minum=document.form.minum.checked;
+        ac=document.form.ac.checked;
+
+        h_wifi=0;
+        h_makan=0;
+        h_minum=0;
+        h_ac=0;
+        if(wifi) h_wifi=5000;
+        if(makan) h_makan=15000;
+        if(minum) h_minum=5000;
+        if(ac) h_ac=5000;
+
+        harga_fasilitas = h_wifi + h_makan + h_minum + h_ac;
+        document.form.harga_fasilitas.value=harga_fasilitas;
+        total_harga = harga_tiket + harga_fasilitas;
+        document.form.total_harga.value=total_harga;
+
+    }
+</script>
+
+<body>
+    <center>
+        <h1>PENJUALAN TIKET KERETA API</h1>
+        <hr>
+        <form name="form">
+        <table>
+            <tr>
+                <td>NAMA PEMBELI<td>: <input type="text" name="nama_pembeli" size="20">
+            </tr>
+            <tr>
+                <td>KOTA TUJUAN<td>: <select name="tujuan">
+                <option>JAKARTA</option>
+                <option>CIREBON</option>
+                <option>SEMARANG</option>
+            </select></tr>
+            <tr>
+                <td>KELAS<td>: <input type="radio" name="kelas" value="EKONOMI">EKONOMI
+                <tr><td><td>: <input type="radio" name="kelas" value="BISNIS">BISNIS
+                <tr><td><td>: <input type="radio" name="kelas" value="EKSEKUTIF">EKSEKUTIF
+            </tr>
+            
+            <tr><td colspan="2"><hr>
+            
+            <tr>
+                <td>FASILITAS<td>: <input type="checkbox" name="wifi" value="WIFI">WIFI
+                <tr><td><td>: <input type="checkbox" name="makan" value="MAKAN">MAKAN</tr>
+                <tr><td><td>: <input type="checkbox" name="minum" value="MINUM">MINUM</tr>
+                <tr><td><td>: <input type="checkbox" name="ac" value="AC">AC
+            </tr>
+            
+            <tr><td colspan="2"><hr>
+            <tr><td>HARGA TIKET<td>: <input type="text" name="harga_tiket" size="10"></tr>
+            <tr><td>HARGA FASILITAS<td>: <input type="text" name="harga_fasilitas" size="10"></tr>
+            
+            <tr><td colspan="2"><hr>
+            <tr><td>TOTAL HARGA<td>: <input type="text" name="total_harga" size="10"></tr>
+
+        </table>
+        <hr>
+        <input type="button" value="Proses" onclick="proses()">
+        <input type="reset" value="Clear">
+        </form>
+    </center>
+</body>
+</html>
